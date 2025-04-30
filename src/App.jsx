@@ -10,7 +10,7 @@
     const [searchTerm, setSearchTerm] = useState('');
     const [videos, setVideos] = useState([]); 
     const handleTermSubmit = async (term) => {
-      console.log("Search Term:", term);
+      // console.log("Search Term:", term);
       setSearchTerm(term);
 
       try {
@@ -18,7 +18,8 @@
           params: {
             part: 'snippet',
             maxResults: 5,
-            key: 'AIzaSyCWFQ6R1WscOH5PC7a5D5ZuW0txsmrqemY',
+            // key: 'AIzaSyCWFQ6R1WscOH5PC7a5D5ZuW0txsmrqemY',
+            key: 'import.env.VITE_APP_YOUTUBE_API_KEY',
             q: term
           }
         });
