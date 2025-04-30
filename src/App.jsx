@@ -1,52 +1,43 @@
-// import React from 'react'
-// import HeaderMain from './Components/HeaderMain'
-// import Video from './Components/Video'
+  import React, { useState } from 'react';
+  import HeaderMain from './Components/HeaderMain';
+  import Video from './Components/Video';
+  import Youtube from './Api/Youtube'; 
 
-// const App = () => {
-//   return (
-//     <div>
-//       <HeaderMain/>
-//       <Video/>
-//     </div>
-//   )
-// }
-  
-// export default App
-import React, { useState, useEffect } from 'react';
-import VideoList from './Components/VideoList';
-import HeaderMain from './Components/HeaderMain';
+  const App = () => {
 
-const App = () => {
-  const [videos, setVideos] = useState([]);
+    
 
-  useEffect(() => {
-    fetchVideos();
-  }, []);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [videos, setVideos] = useState([]); 
+    const handleTermSubmit = async (term) => {
+      console.log("Search Term:", term);
+      setSearchTerm(term);
 
-  const fetchVideos = async () => {
-    const API_KEY = 'AIzaSyDeMC6OsV3zNOOIqpadO9BOPVlhUFOaU0E';
-    const searchQuery = 'latest songs'; 
+      try {
+        const response = await Youtube.get('search', {
+          params: {
+            part: 'snippet',
+            maxResults: 5,
+            key: 'AIzaSyCWFQ6R1WscOH5PC7a5D5ZuW0txsmrqemY',
+            q: term
+          }
+        });
 
-    const response = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchQuery}&key=${API_KEY}&maxResults=10&type=video`);
-    const data = await response.json();
-    console.log(data);
+        //console.log(response.data.items);
+        setVideos(response.data.items); 
 
-    const videosData = data.items.map(item => ({
-      videoId: item.id.videoId,
-      title: item.snippet.title,
-      description: item.snippet.description,
-    }));
+      } catch (error) {
+        console.error("Error fetching data from YouTube API:", error);
+      }
+    };
 
-    setVideos(videosData);
+    return (
+      <div>
+        <HeaderMain onSearch={handleTermSubmit} />
+        <Video videoRefernce={videos} /> {/* Passing the video reference */}
+      </div>
+    );
   };
 
-  return (
-    <div>
-      <HeaderMain />
-      <h1>YouTube Video List</h1>
-      <VideoList videos={videos} />
-    </div>
-  );
-};
+  export default App;
 
-export default App;

@@ -1,161 +1,306 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.75rem 1.5rem;
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 /* Left Section - Logo */
 .left-section {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .logo {
-    height: 40px;
-    width: 40px;
-    object-fit: cover;
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
 }
 
 .brand-name {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #FF0000;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #FF0000;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Center - Search Bar */
 .center-section {
-    flex: 1;
-    display: flex;
-    justify-content: center;
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .search-bar {
-    display: flex;
-    width: 100%;
-    max-width: 600px;
+  display: flex;
+  width: 100%;
+  max-width: 600px;
 }
 
 .search-input {
-    flex: 1;
-    padding: 0.5rem 1rem;
-    border: 1px solid #ccc;
-    border-right: none;
-    border-radius: 9999px 0 0 9999px;
-    font-size: 1rem;
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-right: none;
+  border-radius: 9999px 0 0 9999px;
+  font-size: 1rem;
 }
 
 .search-button {
-    padding: 0.5rem 1rem;
-    background-color: #f8f8f8;
-    border: 1px solid #ccc;
-    border-left: none;
-    border-radius: 0 9999px 9999px 0;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  padding: 0.5rem 1rem;
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-radius: 0 9999px 9999px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .search-button:hover {
-    background-color: #e0e0e0;
+  background-color: #e0e0e0;
 }
 
 /* Right Section - User Icon */
 .right-section {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .user-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    object-fit: cover;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
+
+
+
+
+/* Container for the entire page */
+.video-page-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.one{
+  width:65%;
+}
+/* Right side for small video cards */
+.video-right {
+  width: 28%;
+  /* Adjusted width for better balance */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0.1rem;
+  margin-top: 0.1rem;
+}
+
+/* Styling for small video cards */
+.video-container-one {
+  background-color: #f5f5f5;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.video-container-one iframe {
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+/* Title for each small video card */
+.main-container h1 {
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Description for small video cards */
+.main-container h5 {
+  font-size: 12px;
+  text-align: center;
+  color: #777;
+}
+
+/* General video container styles */
+.video-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 30px 0;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+.video-container iframe {
+  width: 100%;
+  /* height: 450px; */
+  border-radius: 12px;
+}
+
+.video-left {
+  width: 10 0%;
+  /* Takes up most of the width, like YouTube */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Center the content */
+  padding: 20px;
+  background-color: #fff;
+  /* White background for the main video section */
+  border-radius: 12px;
+  /* Rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  /* Soft shadow around the card */
+  margin-bottom: 20px;
+  /* Space below the video container */
+}
+
+/* Main video iframe */
+.main-video {
+  width: 100%;
+  height: 450px;
+  
+  border-radius: 12px;
+  /* Rounded corners for the iframe */
+  margin-bottom: 15px;
+  /* Space below the video */
+}
+
+/* Title for the video */
+.video-left h1 {
+  font-size: 26px;
+  font-weight: 600;
+  color: #202020;
+  /* Dark color for the title */
+  margin: 15px 0 10px 0;
+  /* Margin for spacing */
+  text-align: center;
+  line-height: 1.2;
+  /* Adjust line height for better readability */
+}
+
+/* Description for the video */
+.video-left h5 {
+  font-size: 16px;
+  color: #606060;
+  /* Lighter color for description */
+  text-align: center;
+  margin-bottom: 20px;
+  /* Space below the description */
+}
+
+
+
+
+
+
+/* Styling for video cards in the right column */
 .video-card {
-    width: 800px;
-    cursor: pointer;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    margin: 50px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+
 }
 
-/* .video-card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  } */
-
-.thumbnail {
-    width: 100%;
-    aspect-ratio: 16/9;
-    border: none;
+/* Hover effect for small video cards */
+.video-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* Video info inside each small video card */
 .video-info {
-    padding: 10px;
-    background-color: #fff;
+  padding: 10px;
+  background-color: #fff;
 }
 
-
+/* Video title for small video cards */
 .video-title {
-    margin: 0;
-    font-size: 30px;
-    color: #333;
-    font-weight: bolder;
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+  font-weight: bolder;
 }
 
-h6{
-    font-size: 1rem;
-    font-weight: bold;
+/* Description inside each small video card */
+h6 {
+  font-size: 1rem;
+  font-weight: bold;
 }
 
-
-.listComp {
-    display: flex;
+/* Responsive design adjustments for smaller screens */
+@media (max-width: 768px) {
+  .video-page-container {
     flex-direction: column;
-    gap: 15px;
-    margin: 20px;
-  }
-  
-  .list {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    background-color: #fff;
     padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
-    cursor: pointer;
-    transition: transform 0.2s ease;
   }
-  
-  .list:hover {
-    transform: scale(1.02);
+
+  .video-left,
+  .video-right {
+    width: 100%;
   }
-  
-  .vdo img {
-    border-radius: 6px;
-    object-fit: cover;
+
+  .video-main-card iframe {
+    height: 300px;
   }
-  
-  .vdoInfo {
-    flex: 1;
-    font-size: 14px;
-    color: #333;
+
+  .video-container-one iframe {
+    height: 180px;
   }
-  
+
+  .video-right {
+    margin-top: 20px;
+  }
+}
+
+
+.front-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background-color: #f9f9f9;
+}
+
+.front-card {
+  background: white;
+  padding: 40px 60px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.front-card h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #ff0000;
+}
+
+.front-card p {
+  font-size: 20px;
+  color: #555;
+}

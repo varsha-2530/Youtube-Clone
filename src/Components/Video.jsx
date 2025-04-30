@@ -1,47 +1,44 @@
-// import React from 'react'
+import React, { useState } from 'react';
+import VideoList from './VideoList';
 
-// const Video = (props) => {
-//   return (
-//     <div className="video-card">
-//       <iframe 
-//         src={`https://www.youtube.com/embed/${props.videoId}`} 
-//         frameBorder="0" 
-//         allowFullScreen
-//         className="thumbnail"
-//       ></iframe>
-      
-//       <div className="video-info">
-//         <h2 className="video-title">{props.title}</h2>
-//         <h6>{props.description}</h6>
-//       </div>
-//     </div>
-//   )
-// }
+const Video = ({ videoRefernce }) => {
+    const [selectedVideo, setSelectedVideo] = useState(null);
+    if (!videoRefernce || videoRefernce.length === 0) {
+        return (
+            <div className="front-page">
+                <div className="front-card">
+                    <h1>Welcome to MyTube 🎬</h1>
+                    <p>Search for videos to start watching!</p>
+                </div>
+            </div>
+        );
+    }
 
-// export default Video;
+    // Default video is the first video, if no video is selected
+    const mainVideo = selectedVideo || videoRefernce[0];
+
+    return (
+        <div className="video-page-container">
+            <div className='one'>
+                <div className="video-left">
+                    <iframe
+                        className='main-video'
+                        src={`https://www.youtube.com/embed/${mainVideo?.id?.videoId}?autoplay=1`} // Autoplay added
+                        title={mainVideo?.snippet?.title}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                    ></iframe>
+                    <h1>{mainVideo?.snippet?.title}</h1>
+                    <h5>{mainVideo?.snippet?.description}</h5>
+                </div>
+            </div>
 
 
-
-
-import React from 'react'
-
-const Video = (props) => {
-  return (
-    <div className="video-card">
-      <iframe 
-        src={`https://www.youtube.com/embed/${props.videoId}`} 
-        frameBorder="0" 
-        allowFullScreen
-        className="thumbnail"
-        title={props.title}
-      ></iframe>
-      
-      <div className="video-info">
-        <h2 className="video-title">{props.title}</h2>
-        <h6>{props.description}</h6>
-      </div>
-    </div>
-  )
-}
+            <VideoList videoRefernce={videoRefernce} setSelectedVideo={setSelectedVideo} />
+        </div>
+    );
+};
 
 export default Video;
+

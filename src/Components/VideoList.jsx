@@ -1,41 +1,29 @@
-// import React from 'react'
-// import Video from './Video'
+import React from 'react';
 
-// const VideoList = (props) => {
-//   return (
-//     <div>
-//       {props.videos.map((video, index) => (
-//         <Video 
-//           key={index}
-//           videoId={video.videoId}
-//           title={video.title}
-//           description={video.description}
-//         />
-//       ))}
-//     </div>
-//   )
-// }
-
-// export default VideoList;
-
-
-import React from 'react'
-import Video from './Video'
-
-const VideoList = (props) => {
-  return (
-    <div>
-      {props.videos.map((video, index) => (
-        <Video 
-          key={index}
-          videoId={video.videoId}
-          title={video.title}
-          description={video.description}
-        />
-      ))}
-    </div>
-  )
+const VideoList = ({ videoRefernce, setSelectedVideo }) => {
+    return (
+        <div className="video-right">
+            {videoRefernce.slice(1).map((video, index) => (
+                <div 
+                    className="video-container-one" 
+                    key={index}
+                    onClick={() => setSelectedVideo(video)} // Set the selected video on click
+                    style={{ cursor: 'pointer' }} // Pointer cursor for clicking
+                >
+                    <div className="main-container">
+                        <iframe
+                            src={`https://www.youtube.com/embed/${video.id.videoId}`}
+                            title={video.snippet.title}
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        ></iframe>
+                        <h1>{video.snippet.title}</h1>
+                    </div>
+                </div>
+            ))}
+        </div>
+    );
 }
 
 export default VideoList;
-  
